@@ -13,7 +13,8 @@ import config from './config';
       load: [config],
       isGlobal: true,
       validationSchema: Joi.object({
-        API_KEY: Joi.string().required(),
+        SEND_EMAIL_USER: Joi.string().required(),
+        SEND_EMAIL_PASS: Joi.string().required(),
       }),
     }),
     MailerModule.forRootAsync({

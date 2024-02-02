@@ -1,10 +1,8 @@
-import { Controller, Post, Body, Inject, UseGuards } from '@nestjs/common';
+import { Controller, Post, Body, Inject } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
 import { ConfigType } from '@nestjs/config';
 import config from './config';
-import { ApiKeyGuard } from './modules/auth/guards/api-key.guard';
 
-@UseGuards(ApiKeyGuard)
 @Controller()
 export class AppController {
   constructor(
@@ -28,7 +26,6 @@ export class AppController {
       await this.mailerService.sendMail(mailOptions);
       return 'Correo enviado con éxito';
     } catch (error) {
-      console.error(error);
       throw new Error('Error al enviar el correo');
     }
   }
