@@ -13,7 +13,11 @@ async function bootstrap() {
     }),
   );
   app.useGlobalInterceptors(new ClassSerializerInterceptor(app.get(Reflector)));
-  app.enableCors();
+  app.enableCors({
+    origin: 'https://digesolutions.com',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    optionsSuccessStatus: 204,
+  });
   await app.listen(3000);
 }
 bootstrap();
