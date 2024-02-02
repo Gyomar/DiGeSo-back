@@ -4,7 +4,6 @@ import { MailerModule } from '@nestjs-modules/mailer';
 import * as Joi from 'joi';
 
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import config from './config';
 
 @Module({
@@ -34,6 +33,6 @@ import config from './config';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class AppModule {}
